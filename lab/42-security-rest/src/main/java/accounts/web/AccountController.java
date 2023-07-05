@@ -15,6 +15,7 @@ import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -30,8 +31,7 @@ public class AccountController {
 	 * Creates a new AccountController with a given account manager.
 	 */
 	@Autowired
-	public AccountController(AccountManager accountManager,
-							 AccountService accountService) {
+	public AccountController(AccountManager accountManager, AccountService accountService) {
 		this.accountManager = accountManager;
 		this.accountService = accountService;
 	}
@@ -40,7 +40,6 @@ public class AccountController {
 	public List<String> getAuthoritiesForUser(@RequestParam String username) {
 
 		return accountService.getAuthoritiesForUser(username);
-
 	}
 
 	/**
@@ -70,8 +69,8 @@ public class AccountController {
 	}
 
 	/**
-	 * Returns the Beneficiary with the given name for the Account with the
-	 * given id.
+	 * Returns the Beneficiary with the given name for the Account with the given
+	 * id.
 	 */
 	@GetMapping(value = "/accounts/{accountId}/beneficiaries/{beneficiaryName}")
 	public Beneficiary getBeneficiary(@PathVariable("accountId") int accountId,
@@ -90,8 +89,8 @@ public class AccountController {
 	}
 
 	/**
-	 * Removes the Beneficiary with the given name from the Account with the
-	 * given id.
+	 * Removes the Beneficiary with the given name from the Account with the given
+	 * id.
 	 */
 	@DeleteMapping(value = "/accounts/{accountId}/beneficiaries/{beneficiaryName}")
 	@ResponseStatus(HttpStatus.NO_CONTENT) // 204
@@ -126,8 +125,7 @@ public class AccountController {
 	}
 
 	/**
-	 * Maps UnsupportedOperationException to a 501 Not Implemented HTTP status
-	 * code.
+	 * Maps UnsupportedOperationException to a 501 Not Implemented HTTP status code.
 	 */
 	@ResponseStatus(HttpStatus.NOT_IMPLEMENTED)
 	@ExceptionHandler({ UnsupportedOperationException.class })
@@ -157,8 +155,8 @@ public class AccountController {
 	}
 
 	/**
-	 * Finds the Account with the given id, throwing an IllegalArgumentException
-	 * if there is no such Account.
+	 * Finds the Account with the given id, throwing an IllegalArgumentException if
+	 * there is no such Account.
 	 */
 	private Account retrieveAccount(long accountId) throws IllegalArgumentException {
 		Account account = accountManager.getAccount(accountId);
@@ -169,16 +167,14 @@ public class AccountController {
 	}
 
 	/**
-	 * Return a response with the location of the new resource. It's URL is
-	 * assumed to be a child of the URL just received.
+	 * Return a response with the location of the new resource. It's URL is assumed
+	 * to be a child of the URL just received.
 	 *
 	 * Suppose we have just received an incoming URL of, say,
-	 * http://localhost:8080/accounts and resourceId
-	 * is "12345". Then the URL of the new resource will be
-	 * http://localhost:8080/accounts/12345.
+	 * http://localhost:8080/accounts and resourceId is "12345". Then the URL of the
+	 * new resource will be http://localhost:8080/accounts/12345.
 	 * 
-	 * @param resourceId
-	 *            Is of the new resource.
+	 * @param resourceId Is of the new resource.
 	 * @return
 	 */
 	private ResponseEntity<Void> entityWithLocation(Object resourceId) {
