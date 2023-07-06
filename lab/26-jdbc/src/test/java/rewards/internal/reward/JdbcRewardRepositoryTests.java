@@ -92,7 +92,7 @@ public class JdbcRewardRepositoryTests {
 	private int getRewardCount() throws SQLException {
 		// TODO-01: Use JdbcTemplate to query for the number of rows in the T_REWARD
 		// table
-		// - Use "SELECT count(*) FROM T_REWARD" as SQL statement
+		// - Use "SELECT count(*) FROM T_REWARD" as SQL statement 
 		return jdbcTemplate.queryForObject("SELECT count(*) FROM T_REWARD", Integer.class);
 	}
 
