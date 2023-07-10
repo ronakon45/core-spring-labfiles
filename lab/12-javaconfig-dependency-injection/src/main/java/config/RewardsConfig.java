@@ -46,4 +46,35 @@ import rewards.internal.reward.RewardRepository;
 @Configuration
 public class RewardsConfig {
 
+	private DataSource dataSource;
+
+	public RewardsConfig(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
+	@Bean
+	public RewardNetwork rewardNetwork() {
+		return new RewardNetworkImpl(accountRepository(), restaurantRepository(), rewardRepository());
+	}
+
+	@Bean
+	public AccountRepository accountRepository() {
+		JdbcAccountRepository repo = new JdbcAccountRepository();
+		repo.setDataSource(dataSource);
+		return repo;
+	}
+
+	@Bean
+	public RestaurantRepository restaurantRepository() {
+		JdbcRestaurantRepository repo = new JdbcRestaurantRepository();
+		repo.setDataSource(dataSource);
+		return repo;
+	}
+
+	@Bean
+	public RewardRepository rewardRepository() {
+		JdbcRewardRepository repo = new JdbcRewardRepository();
+		repo.setDataSource(dataSource);
+		return repo;
+	}
 }
