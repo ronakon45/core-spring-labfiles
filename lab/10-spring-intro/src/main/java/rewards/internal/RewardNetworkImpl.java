@@ -28,11 +28,11 @@ import rewards.internal.reward.RewardRepository;
  * and test code without using Spring framework
  *
  * TODO-01: Review the Rewards Application document (Refer to the lab document)
- * TODO-02: Review project dependencies (Refer to the lab document) TODO-03:
- * Review Rewards Commons project (Refer to the lab document) TODO-04: Review
- * RewardNetwork interface and RewardNetworkImpl class below TODO-05: Review the
- * RewardNetworkImpl configuration logic (Refer to the lab document) TODO-06:
- * Review sequence diagram (Refer to the lab document)
+ * TODO-02: Review project dependencies (Refer to the lab document) 
+ * TODO-03: Review Rewards Commons project (Refer to the lab document) 
+ * TODO-04: Review RewardNetwork interface and RewardNetworkImpl class below 
+ * TODO-05: Review the RewardNetworkImpl configuration logic (Refer to the lab document) 
+ * TODO-06: Review sequence diagram (Refer to the lab document)
  */
 public class RewardNetworkImpl implements RewardNetwork {
 
