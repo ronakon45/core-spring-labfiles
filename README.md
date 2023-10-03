@@ -24,4 +24,5 @@ chmod 755 mvnw
 If you experience any build failure, check firewalls or proxy settings in the <Home-Directory>/.m2/settings.xml file.
 
 # NOTE
-use java11 or java17 only for compile and build
+- use java11 or java17 only for compile and build
+- use Gradle only
